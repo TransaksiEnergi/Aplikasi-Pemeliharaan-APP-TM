@@ -79,5 +79,12 @@
   .welcome-title span {
     display: inline-block;
   }
+
+#registerMessage {
+  margin-top: 10px;
+  min-height: 20px;
+  color: green;
+}
+
   
   
