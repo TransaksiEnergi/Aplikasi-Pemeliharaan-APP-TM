@@ -16,7 +16,7 @@ showLogin.addEventListener('click', e => {
 });
 
 // Ganti dengan URL Web App Google Apps Script-mu
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbxjZBgvAQl39C5dDv4VrX4pak-eF4zcMH4VMlLizeDxuWsZ-MAGcae3k91gMFN-R-NLWQ/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzPqTnvkrOOU8nXuxAostPUGQH1tAzxetLudoa2nFjFO0txiSKd7gbve0N-w7QUbsUPEA/exec';
 
 // Login form submit
 document.getElementById('loginForm').addEventListener('submit', function(e) {
