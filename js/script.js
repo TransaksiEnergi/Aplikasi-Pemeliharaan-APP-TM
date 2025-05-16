@@ -44,8 +44,13 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 });
 
 // Register form submit
+const registerBox = document.getElementById('registerBox');
+const loginBox = document.getElementById('loginBox');
+const registerMessage = document.getElementById('registerMessage'); // div untuk pesan
+
 document.getElementById('registerForm').addEventListener('submit', function(e) {
   e.preventDefault();
+
   const username = document.getElementById('regUsername').value.trim();
   const name = document.getElementById('regName').value.trim();
   const email = document.getElementById('regEmail').value.trim();
@@ -58,15 +63,24 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
   .then(res => res.json())
   .then(data => {
     if (data.status === 'success') {
-      alert('Pendaftaran berhasil! Silakan login.');
-      registerBox.classList.add('hidden');
-      loginBox.classList.remove('hidden');
+      registerMessage.textContent = 'Pendaftaran berhasil, silahkan login.';
+      registerMessage.style.color = 'green';
+
+      // Setelah sukses, reset form dan pindah ke login setelah delay
+      e.target.reset();
+      setTimeout(() => {
+        registerBox.classList.add('hidden');
+        loginBox.classList.remove('hidden');
+        registerMessage.textContent = ''; // bersihkan pesan
+      }, 2000);
     } else {
-      alert(data.message);
+      registerMessage.textContent = data.message;
+      registerMessage.style.color = 'red';
     }
   })
   .catch(err => {
-    alert('Terjadi kesalahan jaringan.');
+    registerMessage.textContent = 'Terjadi kesalahan jaringan.';
+    registerMessage.style.color = 'red';
     console.error(err);
   });
 });
