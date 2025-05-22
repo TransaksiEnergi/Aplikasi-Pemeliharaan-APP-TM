@@ -21,8 +21,8 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbz99ai6U_nKBtz7El1MT9ar
 // Login form submit
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const username = document.getElementById('loginUsername').value.trim();
-  const password = document.getElementById('loginPassword').value.trim();
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
 
   fetch(GAS_URL, {
     method: 'POST',
